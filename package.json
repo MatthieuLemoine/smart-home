@@ -1,14 +1,14 @@
 {
-  "name": "connected-house",
+  "name": "Smart Home",
   "version": "1.0.0",
-  "description": "A open source connected house using Raspberry Pi and Node JS",
+  "description": "A open source smart home powered by Raspberry Pi and Node JS",
   "main": "index.js",
   "scripts": {
     "flash": "node ./pi-scripts/flash.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MatthieuLemoine/connected-house.git"
+    "url": "git+https://github.com/MatthieuLemoine/smart-home.git"
   },
   "keywords": [
     "connected",
@@ -23,9 +23,9 @@
   "author": "MatthieuLemoine",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MatthieuLemoine/connected-house/issues"
+    "url": "https://github.com/MatthieuLemoine/smart-home/issues"
   },
-  "homepage": "https://github.com/MatthieuLemoine/connected-house#readme",
+  "homepage": "https://github.com/MatthieuLemoine/smart-home#readme",
   "dependencies": {
     "inquirer": "^2.0.0",
     "shelljs": "^0.7.5",
