@@ -1,7 +1,7 @@
 {
   "name": "connected-house",
   "version": "1.0.0",
-  "description": "A open source connected house",
+  "description": "A open source connected house using Raspberry Pi and Node JS",
   "main": "index.js",
   "scripts": {
     "flash" : "node ./pi-scripts/flash.js"
@@ -16,7 +16,9 @@
     "open",
     "source",
     "node",
-    "js"
+    "js",
+    "raspberry",
+    "pi"
   ],
   "author": "MatthieuLemoine",
   "license": "MIT",
