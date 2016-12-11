@@ -1,0 +1,38 @@
+{
+  "name": "connected-house",
+  "version": "1.0.0",
+  "description": "A open source connected house",
+  "main": "index.js",
+  "scripts": {
+    "flash" : "node ./pi-scripts/flash.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatthieuLemoine/connected-house.git"
+  },
+  "keywords": [
+    "connected",
+    "house",
+    "open",
+    "source",
+    "node",
+    "js"
+  ],
+  "author": "MatthieuLemoine",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MatthieuLemoine/connected-house/issues"
+  },
+  "homepage": "https://github.com/MatthieuLemoine/connected-house#readme",
+  "dependencies": {
+    "inquirer": "^2.0.0",
+    "shelljs": "^0.7.5"
+  },
+  "devDependencies": {
+    "eslint": "^3.7.0",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0"
+  }
+}
