@@ -4,6 +4,8 @@ const sh       = require('shelljs');
 const inquirer = require('inquirer');
 const uuid     = require('uuid');
 const path     = require('path');
+const fs       = require('fs');
+const chalk    = require('chalk');
 
 if (!process.getuid || process.getuid() !== 0) {
   throw new Error('Need to be launch as root');
@@ -44,12 +46,12 @@ inquirer.prompt([
     }
     // Check if image exists
     if (sh.test('-f', imagePath)) {
-      console.info('Writing... It could take several minutes...');
+      console.info(chalk.blue('Writing... It could take several minutes...'));
       // Flash SD card
       sh.exec(`dd bs=4M if=${imagePath} of=${deviceName}`);
       // Flush write cache
       sh.exec('sync');
-      console.info('SD card flashed!');
+      console.info(chalk.green('SD card flashed!'));
       inquirer.prompt([
         {
           type    : 'confirm',
@@ -85,25 +87,28 @@ inquirer.prompt([
           sh.mkdir(mainPath);
           sh.exec(`mount ${deviceName}2 ${mainPath}`);
           // Configure WiFi
-          sh.echo(
-            `
-            network={
-              ssid="${ssid}"
-              psk="${password}"
-            }
-            `
-          ).toEnd(path.join(mainPath, 'etc', 'wpa_supplicant', 'wpa_supplicant.conf'));
+          const wpaSupplicantPath =
+            path.join(mainPath, 'etc', 'wpa_supplicant', 'wpa_supplicant.conf');
+          const fileData = fs.readFileSync(wpaSupplicantPath, { encoding : 'utf8' });
+          // Add network info to wpa_supplicant
+          fs.writeFileSync(
+            wpaSupplicantPath,
+            `${fileData}\nnetwork={\n  ssid="${ssid}"\n  psk="${password}"\n}\n`
+          );
           // Unmount main partition
           sh.exec(`umount ${deviceName}2`);
 
-          console.info('Pi has been successfully setup !');
+          console.info(chalk.green('Pi has been successfully setup !'));
         }
-      });
+      })
+      .catch(err => console.error(chalk.red(err)));
     } else {
-      console.error(`Aborted. SD card was not flashed. Image file not found at ${imagePath}`);
+      console.error(
+        chalk.red(`Aborted. SD card was not flashed. Image file not found at ${imagePath}`)
+      );
     }
   } else {
-    console.info('Aborted. SD card was not flashed.');
+    console.warn(chalk.yellow('Aborted. SD card was not flashed.'));
   }
 })
-.catch(err => console.error(err));
+.catch(err => console.error(chalk.red(err)));
