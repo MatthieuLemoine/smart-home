@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "flash": "node ./pi-scripts/flash.js",
-    "camera": "node ./camera/index.js"
+    "postinstall": "cd camera && npm i && cd .."
   },
   "repository": {
     "type": "git",
