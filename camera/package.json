@@ -4,7 +4,7 @@
   "description": "A video surveillance system for smart-house",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,6 @@
     "express": "^4.14.0",
     "h264-live-player": "^1.3.1",
     "stream-split": "^1.1.0",
-    "ws": "^1.1.1"
+    "uws": "^0.12.0"
   }
 }
