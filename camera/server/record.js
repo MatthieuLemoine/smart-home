@@ -2,10 +2,13 @@ const spawn = require('child_process').spawn;
 const fs    = require('fs');
 const path  = require('path');
 
-const localVideoStream = fs.createWriteStream(path.join(__dirname, '..', 'videos', 'out.h264'));
-
 let recordProcess;
 let options;
+const videoFile      = path.join(__dirname, '..', 'videos', 'out.h264');
+let localVideoStream = fs.createWriteStream(videoFile);
+
+// Clear output video every 2 hours
+setInterval(clearOutput, 7200000);
 
 module.exports = {
   start,
@@ -42,4 +45,13 @@ function getFeed() {
 
 function setOptions(opts) {
   options = opts;
+}
+
+function clearOutput() {
+  if (recordProcess) {
+    recordProcess.stdout.unpipe(localVideoStream);
+  }
+  localVideoStream.end();
+  // w flag by default i.e replace file
+  localVideoStream = fs.createWriteStream(videoFile);
 }
