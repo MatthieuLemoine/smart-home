@@ -4,7 +4,7 @@
   "description": "A video surveillance system for smart-house",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server/index.js",
     "build": "webpack --config webpack.config.js --progress --profile --colors",
     "watch": "webpack --config webpack.config.js --progress --profile --colors --watch",
     "postinstall": "npm run build"

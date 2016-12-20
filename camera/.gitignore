@@ -1,2 +1,4 @@
-public/bundle.js
+dist/bundle.js
 node_modules
+*.log
+*.h264
