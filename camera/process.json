@@ -1,7 +1,7 @@
 {
   "name"       : "smart-house-camera",
   "script"     : "server/index.js",
-  "watch"      : true,
+  "watch"      : false,
   "log_file"   : "logs/combined.outerr.log",
   "out_file"   : "logs/out.log",
   "error_file" : "logs/err.log",
