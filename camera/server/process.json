@@ -1,5 +1,5 @@
 {
-  "name"         : "smart-house-camera",
+  "name"         : "smart-home-camera",
   "script"       : "index.js",
   "watch"        : true,
   "log_file"     : "logs/combined.outerr.log",
