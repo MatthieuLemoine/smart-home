@@ -1,0 +1,12 @@
+{
+  "name"         : "smart-house-camera",
+  "script"       : "index.js",
+  "watch"        : true,
+  "log_file"     : "logs/combined.outerr.log",
+  "out_file"     : "logs/out.log",
+  "error_file"   : "logs/err.log",
+  "merge_logs"   : true,
+  "env"          : {
+    "PORT"        : 3000
+  }
+}

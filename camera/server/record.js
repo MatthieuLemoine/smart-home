@@ -28,7 +28,7 @@ function start() {
       '-pf', 'baseline'
     ]);
   recordProcess.stdout.pipe(localVideoStream);
-  recordProcess.on('exit', code => console.log('Camera process exiting', code));
+  recordProcess.on('exit', code => logger.error('Camera process exiting', code));
 }
 
 function stop() {
